@@ -1,0 +1,46 @@
+﻿<h2>Add new address</h2>
+  <form class="form-horizontal" id ="updateForm" name ="updateForm" role="form" action="action.php" method="post">
+  
+           	<label>Name</label> 
+     		 <div class="row">                    
+	         <div class="col-md-12  "><input id ="firstName" name ="first_name" type="text" placeholder="Enter First Name" class="form-control" ></div>
+		     </div>
+	 		 <div class="row">                     
+	         <div class="col-md-12  "><input id ="lastName" name ="last_name" type="text" placeholder="Enter Last Name" class="form-control" ><br></div>
+		     </div>
+            
+            <label >Email</label>
+            <div class="row">
+           <div class="col-md-12"> <input id ="email" name ="email_id" type="email" placeholder="Enter your email-id" class="form-control" ><br></div></div>
+               
+            <label>Mobile</label>
+            <div class="row">
+           <div class="col-md-12"> <input id="mobile" name ="mobile" type="tel" placeholder="Enter 10 digit mobile number" class="form-control" ><br></div></div>
+          
+		 	<label>Address Line 1</label>
+            <div class="row">
+           <div class="col-md-12"> <input id="address1" name ="address1" type="text" placeholder="House No , Building Name" class="form-control" ></div></div>
+        
+		    <label>Address Line 2</label>
+            <div class="row">
+           <div class="col-md-12"> <input id="address2" name ="address2" type="text" placeholder="Locality" class="form-control"><br></div></div>
+           
+           <label>City and State</label>
+            <div class="row">
+           <div class="col-md-6"> 
+           	<select id ="city" name="city" class="form-control">
+              <option>Gandhinagar</option>
+              <option>Ahmedabad</option>
+            </select> </div>        
+           <div class="col-md-6"> 
+           	<select id ="state" name="state" class="form-control">
+              <option>Gujarat</option>
+             <option>Ahmedabad</option>
+           </select> </div></div><br>
+
+			<div class="row">
+			<div class="col-md-5">
+            <button type="submit" class="btn btn-primary" onclick='ajaxFunction()' >Add</button></div>
+            </div>
+          	</form>
+          	
