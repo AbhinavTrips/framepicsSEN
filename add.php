@@ -14,6 +14,9 @@ $aid = $query_array['aid'];
 if($i==0){
 echo '<div class="col-md-5 add">';
 }else{
+if($def == NULL){
+break;
+}
 echo '<div class="col-md-5 col-md-offset-1 add">';
 }
 echo $query_array['firstname'].' '.$query_array['lastname'].'<br>'.$query_array['address1'].'<br>'.$query_array['address2'].'<br>'.$query_array['city'].'<br>'.$query_array['state'].'-'.$query_array['pin'].'<br>'.$query_array['mobile'];
