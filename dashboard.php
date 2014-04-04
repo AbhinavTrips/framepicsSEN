@@ -71,7 +71,16 @@ $user = getuserfield('first_name');
             <li><a href="#addresses">Addresses</a></li>
             <li><a href="#changepass">Change Password</a></li>
             <li><a href="#orders">Orders</a></li>
-            <li><a href="#newadd">Add Address</a></li>
+            <?php
+            if(loggedin()){
+            $id = getuserfield('user_id');
+            $addnum = numadd($id);
+            	if($addnum == 1)
+            	{
+            		echo '<li><a href="#newadd">Add Address</a></li>';
+            	}            
+            }
+            ?>
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -122,16 +131,24 @@ $user = getuserfield('first_name');
 			</table>
           </div>
           
-            <div class="row">
-			<div class="col-md-3">
-			  <?php 
+          <?php
+            if(loggedin()){
+            $id = getuserfield('user_id');
+            $addnum = numadd($id);
+            	if($addnum == 1)
+            	{
+            		echo '<div class="row">
+			<div class="col-md-3">';
+		
 				include 'new_add.html';
- 			  ?></div>
- 			  
+ 			echo'</div>
  			<div class="row" id="addnew">
-			
 			</div>
-			</div>
+			</div>';
+            	}            
+            }
+            ?>
+
 
         </div>
       </div>
