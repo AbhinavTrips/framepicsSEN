@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="docs-assets/ico/favicon.png">
+	<script src="jsfunc.js"></script>
+
+<!--    <title>Signin Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+<!--    <link href="css/bootstrap.css" rel="stylesheet">
+-->
+    <!-- Custom styles for this template -->
+<!--    <link href="css/signin.css" rel="stylesheet">
+-->
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+<!--    <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries 
+   <!--[if lt IE 9]>
+   <script src="html5shiv.js"></script>
+    <script src="respond.min.js"></script>
+
+    <![endif]
+<title>Untitled 1</title>
+-->          
+
+</head>
+
+<body>
+
+
+<h2>Personal Info</h2>
+  <form class="form-horizontal" id ="newadd" name ="newadd" role="form">
+  
+           	<label>Recipient's Name</label> 
+     		 <div class="row">                    
+	         <div class="col-md-12  "><input id ="firstName" name ="first_name" type="text" placeholder="Enter first name" class="form-control"></div>
+		     </div>
+	 		 <div class="row">                     
+	         <div class="col-md-12  "><input id ="lastName" name ="last_name" type="text" placeholder="Enter Last Name" class="form-control"><br></div>
+		     </div>
+            
+            <label >Recipient's Address</label>
+            <div class="row">
+           <div class="col-md-12"> <input id ="add1" name ="add1" type="text" placeholder="Address Line 1" class="form-control" ></div></div>
+            
+            <div class="row">
+           <div class="col-md-12"> <input id ="add2" name ="add2" type="text" placeholder="Address Line 2" class="form-control" ><br></div></div>
+            
+            <label >City</label>
+            <div class="row">
+           <div class="col-md-12">
+           <select class="form-control">
+  			<option>Gandhinagar</option>
+  			<option>Ahmedabad</option>
+			</select><br></div></div>
+            
+            <label >State</label>
+            <div class="row">
+           <div class="col-md-12">
+            <select class="form-control">
+  			<option>Gujarat</option>
+			</select><br></div></div>
+               
+            <label>PIN</label>
+            <div class="row">
+           <div class="col-md-12"> <input id="pin" name ="pin" type="number" placeholder="Enter your pin code" class="form-control" ><br></div></div>
+    
+        	<label>Mobile</label>
+            <div class="row">
+           <div class="col-md-12"> <input id="mobile" name ="mobile" type="tel" placeholder="Enter 10 digit mobile number of the recipient" class="form-control" ><br></div></div>
+
+			<div class="row">
+			<div class="col-md-5">
+            <button type="button" class="btn btn-primary" onclick='address()'>Add</button></div>
+            </div>
+          	</form>
+          	<div id="pers"></div>
+          	 </body>
+ </html>         	
+
+          	
