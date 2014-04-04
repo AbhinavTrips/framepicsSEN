@@ -2,6 +2,7 @@
 include 'connection.php';
 require 'current_page.php';
 if(loggedin()){
+$user = getuserfield('first_name');
 //echo $_SESSION['user_id'];
 }
 ?>
@@ -45,7 +46,7 @@ if(loggedin()){
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="#">Framepics</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -65,36 +66,28 @@ if(loggedin()){
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">Overview</a></li>
-            <li><a href="#">Reports</a></li>
-            <li><a href="#">Analytics</a></li>
-            <li><a href="#">Export</a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
-            <li><a href="">Nav item</a></li>
-            <li><a href="">Nav item again</a></li>
-            <li><a href="">One more nav</a></li>
-            <li><a href="">Another nav item</a></li>
-            <li><a href="">More navigation</a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
-            <li><a href="">Nav item again</a></li>
-            <li><a href="">One more nav</a></li>
-            <li><a href="">Another nav item</a></li>
+            <li class="active"><a href="#dash">Dashboard</a></li>
+            <li><a href="#personal">Personal Info</a></li>
+            <li><a href="#addresses">Addresses</a></li>
+            <li><a href="#changepass">Change Password</a></li>
+            <li><a href="#orders">Orders</a></li>
+            <li><a href="#newadd">Add Address</a></li>
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Dashboard</h1>
+          <h1 class="page-header" id="dash"><?php echo $user.'\'s ';?>Dashboard</h1>
 
           <div class="row">
 			<div class="col-md-3">
 			  <?php 
 				include 'add_update.html';
  			  ?>
+ 			  <div class="row" id="updatePer">
+			  </div>
 			</div>
 			<div class="col-md-4 col-md-offset-1"><br>
 				<div class="row">
-				<h2>Your Addresses</h2>
+				<h2  id="addresses">Your Addresses</h2>
 					<?php require 'add.php'; ?>
 				</div><br>
 				<div class="row" id="defChange">
@@ -108,9 +101,9 @@ if(loggedin()){
 			</div>
 		</div>
 
-          <h2 class="sub-header">Section title</h2>
+          <h2 class="sub-header"  id="orders">Order History</h2>
           <div class="table-responsive">
-                     <table class="table table-striped">
+              <table class="table table-striped">
               <thead>
                 <tr>
                   <th>Order ID</th>
@@ -128,6 +121,18 @@ if(loggedin()){
 			  </tbody>
 			</table>
           </div>
+          
+            <div class="row">
+			<div class="col-md-3">
+			  <?php 
+				include 'new_add.html';
+ 			  ?></div>
+ 			  
+ 			<div class="row" id="addnew">
+			
+			</div>
+			</div>
+
         </div>
       </div>
     </div>
