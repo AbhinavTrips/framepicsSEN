@@ -25,9 +25,9 @@ function getuserfield($field){
 }
 
 function numadd($id){
-	$query = "SELECT COUNT(`userid`) FROM `address` WHERE `userid`='$id'";
-	$run = mysql_query($query);
-	$rows =mysql_num_rows($run);
-	return $rows;
+$num ="SELECT COUNT(`aid`) FROM `address` WHERE `userid`='$id'";
+$run = mysql_query($num);
+$rows = mysql_fetch_array($run);
+return $rows['COUNT(`aid`)'];
 	}
 ?>
