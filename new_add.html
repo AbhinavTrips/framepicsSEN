@@ -9,6 +9,9 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="docs-assets/ico/favicon.png">
 	<script src="jsfunc.js"></script>
+	<script type="text/javascript">
+
+	</script>
 
 <!--    <title>Signin Template for Bootstrap</title>
 
@@ -35,15 +38,15 @@
 <body>
 
 
-<h2>Personal Info</h2>
+<h2>Add New Address</h2>
   <form class="form-horizontal" id ="newadd" name ="newadd" role="form">
   
            	<label>Recipient's Name</label> 
      		 <div class="row">                    
-	         <div class="col-md-12  "><input id ="firstName" name ="first_name" type="text" placeholder="Enter first name" class="form-control"></div>
+	         <div class="col-md-12  "><input id ="first" name ="first_name" type="text" placeholder="Enter first name" class="form-control"></div>
 		     </div>
 	 		 <div class="row">                     
-	         <div class="col-md-12  "><input id ="lastName" name ="last_name" type="text" placeholder="Enter Last Name" class="form-control"><br></div>
+	         <div class="col-md-12  "><input id ="last" name ="last_name" type="text" placeholder="Enter Last Name" class="form-control"><br></div>
 		     </div>
             
             <label >Recipient's Address</label>
@@ -56,7 +59,7 @@
             <label >City</label>
             <div class="row">
            <div class="col-md-12">
-           <select class="form-control">
+           <select class="form-control" id="city">
   			<option>Gandhinagar</option>
   			<option>Ahmedabad</option>
 			</select><br></div></div>
@@ -64,24 +67,27 @@
             <label >State</label>
             <div class="row">
            <div class="col-md-12">
-            <select class="form-control">
+            <select class="form-control" id="state">
   			<option>Gujarat</option>
 			</select><br></div></div>
                
             <label>PIN</label>
             <div class="row">
-           <div class="col-md-12"> <input id="pin" name ="pin" type="number" placeholder="Enter your pin code" class="form-control" ><br></div></div>
+           <div class="col-md-12"> <input id ="code" name ="pin" type="text" placeholder="Enter recipient's PIN Code" class="form-control"><br></div></div>
     
         	<label>Mobile</label>
             <div class="row">
-           <div class="col-md-12"> <input id="mobile" name ="mobile" type="tel" placeholder="Enter 10 digit mobile number of the recipient" class="form-control" ><br></div></div>
+           <div class="col-md-12"> <input id ="mobi" name ="mobile" type="text" placeholder="Enter receiver's mobile number" class="form-control"><br></div></div>
+        	<label>Email</label>
+            <div class="row">
+           <div class="col-md-12"> <input id ="mail" name ="email" type="text" placeholder="Enter receiver's emailid" class="form-control"><br></div></div>
 
 			<div class="row">
 			<div class="col-md-5">
-            <button type="button" class="btn btn-primary" onclick='address()'>Add</button></div>
+             <button type="button" class="btn btn-primary" onclick='address()'>Add</button></div>
             </div>
           	</form>
-          	<div id="pers"></div>
+          	<div id="newAdd"></div>
           	 </body>
  </html>         	
 
