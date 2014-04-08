@@ -1,11 +1,12 @@
 <?php
 require 'connection.php';
 require 'current_page.php';
+if(!empty($_POST['fname'])){
 $fname = $_POST['fname'];
 $stock = $_POST['stock'];
 $color = $_POST['color'];
 $base = $_POST['base'];
-/*$ftype = $_POST['ftype'];
+$ftype = $_POST['ftype'];
 $fsize = $_POST['fsize'];
 $structure = 'admin_uploads/'.$ftype.'/'.$fname.$fsize;
 $filename = $structure;
@@ -80,7 +81,7 @@ if(isset($name3)){
 	echo 'No File was chosen3';
 	}
 }
-*/
+
 // Adding frame name to database
 
 $query = "SELECT `fname` FROM `frames` WHERE `fname` = '$fname'";
@@ -89,8 +90,9 @@ if(mysql_num_rows($query_run)!=0){
 echo 'fname exists';
 }
 else{
-$queryi = "INSERT INTO `frames`(`fname`, `stock`, `color`, `baseprice`) VALUES ('$fname','$stock','$color','$base')";
+$queryi = "INSERT INTO `frames`(`fname`, `stock`, `baseprice`,`ftype`) VALUES ('$fname','$stock','$base','$ftype')";
 $queryi_run = mysql_query($queryi);
+}
 }
 ?>
 
