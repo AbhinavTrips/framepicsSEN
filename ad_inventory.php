@@ -11,7 +11,7 @@
 
 <body>
 <form action="update_inventory.php" method ="post" enctype="multipart/form-data">
-<select class="form-control" name="ftype">
+<select class="form-control" name="fname">
 <option>Select from available frames</option>
  <?php
  require 'connection.php';
@@ -23,8 +23,8 @@ echo '<option>'.$namef.'</option>';
 }
 ?>
 </select>
-<input type="text" name="stock" id="stock" class="form-control" placeholder="stock"><br>
-<input type="text" name="base" id="base" class="form-control" placeholder="base price"><br>
+<input type="text" name="stock" id="stock" class="form-control" placeholder="stock" required><br>
+<input type="text" name="base" id="base" class="form-control" placeholder="base price" required><br>
 
 <input type="submit" name="upload">
 </form>
