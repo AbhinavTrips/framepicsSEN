@@ -54,7 +54,7 @@ if($run = mysql_query($query)){
                   <div class="row">
                   <div class="col-md-12">
     			  <div class="input-group">
-     			  <input type="text" class="form-control" id ="status'.$oid.'" name ="status" type="text" placeholder="Status">
+     			  <input type="text" class="form-control" id ="status'.$oid.'" name ="status" type="text" placeholder="'.$status.'">
      			  <span class="input-group-btn">
      			  <button id = "'.$oid.'" class="btn btn-default" type="button" onclick="statusUpdate('.$oid.')"><span class="glyphicon glyphicon-ok"></span></button>
      			  </span></div>
@@ -69,7 +69,7 @@ if($run = mysql_query($query)){
                   <div class="row">                    
 	     	         <div class="col-md-6">
 	            		   <div class="input-group">
-	     	      		   <input id ="dates'.$oid.'" name ="status" type="date" placeholder="'.$delivery.'" class="form-control" value="2014-12-31">
+	     	      		   <input id ="dates'.$oid.'" name ="status" type="date" placeholder="'.$delivery.'" class="form-control" value="'.$delivery.'">
    	        	    	   <span class="input-group-btn">    	         
 					 	   <button id = "dateb'.$oid.'" type="button" class="btn btn-primary" onclick="deliveryUpdate('.$oid.')"><span class="glyphicon glyphicon-ok"></span></button></span></div>	     	        
 				  </div>
