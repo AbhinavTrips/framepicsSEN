@@ -59,8 +59,8 @@
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li class="active"><a href="#">Overview</a></li>
-            <li><a href="#">Reports</a></li>
-            <li><a href="#">Analytics</a></li>
+            <li><a href="#pending">Pending Orders</a></li>
+            <li><a href="#allOrders">All Orders</a></li>
             <li><a href="#">Export</a></li>
           </ul>
       
@@ -68,7 +68,7 @@
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">Dashboard</h1>
 
-          <h2 class="sub-header"><span lang="en-in">Orders</span></h2>
+          <h2 class="sub-header" id="#pending"><span lang="en-in">Pending Orders</span></h2>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
@@ -84,10 +84,39 @@
                   <th>Recipient's Address</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="tabOrder">
+            
              <?php
-             require 'admin_order.php';
+           //  require 'admin_order.php';
+             require 'admin_pending.php';
              ?>
+   
+              </tbody>
+            </table>
+          </div>
+          <h2 class="sub-header" id="#allOrders"><span lang="en-in">All Orders</span></h2>         
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Frame ID</th>
+                  <th>Frame Color</th>
+                  <th>Mount ID</th>
+                  <th>Mount Color</th>
+                  <th>Status</th>
+                  <th>Delivered On</th>
+                  <th>Price</th>
+                  <th>Recipient's Address</th>
+                </tr>
+              </thead>
+              <tbody id="tabOrder">
+            
+             <?php
+           require 'admin_order.php';
+            // require 'admin_pending.php';
+             ?>
+   
               </tbody>
             </table>
           </div>
