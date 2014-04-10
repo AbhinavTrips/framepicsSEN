@@ -1,6 +1,6 @@
 <?php
 require 'connection.php';
-require 'admin.php';
+//require 'admin.php';
 if(adloggedin()){
 /*$user = $_SESSION['user_id'];
 */$query = "SELECT * FROM `order_frame` WHERE `status`='processing'";
