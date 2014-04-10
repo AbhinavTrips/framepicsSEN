@@ -6,5 +6,6 @@ $fname = $_POST['fname'];
 $query = "UPDATE `frames` SET `stock`='$stock',`baseprice`='$base' WHERE `fname`='$fname'";
 if($query_run = mysql_query($query)){
 echo 'update successful';
+header('Location:dashboard_admin.php');
 }
 ?>
