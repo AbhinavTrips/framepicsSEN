@@ -15,7 +15,7 @@ if($query_run = mysql_query($query)){
 	} 	else if($query_num_rows==1){
 		$user_id = mysql_result($query_run,0,'adminid');
 		$_SESSION['adminid']= $user_id;
-		//header('Location: home.php');
+		header('Location: dashboard_admin.php');
 		
 
 		}
@@ -23,7 +23,7 @@ if($query_run = mysql_query($query)){
 }
 if(adloggedin()){
 	$name = getadminfield('adminid');
-	echo $name;
+	//echo $name;
 	}
 ?> 
 
