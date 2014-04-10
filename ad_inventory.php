@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-<title>Untitled 1</title>
-<link href="../framePics/css/bootstrap.min.css" rel="stylesheet">
-<!-- Custom styles for this template -->
-<link href="../framePics/dashboard.css" rel="stylesheet">
-</head>
-
-<body>
+<div style="border-bottom:dotted">
 <form action="update_inventory.php" method ="post" enctype="multipart/form-data">
 <select class="form-control" name="fname">
 <option>Select from available frames</option>
@@ -27,7 +16,9 @@ echo '<option>'.$namef.'</option>';
 <input type="text" name="base" id="base" class="form-control" placeholder="base price" required><br>
 
 <input type="submit" name="upload">
-</form>
-</body>
+</form><br>
+</div>
+<!--</body>
 
 </html>
+-->
