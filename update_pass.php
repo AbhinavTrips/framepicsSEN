@@ -39,22 +39,23 @@
   
            	<label>Old Password</label> 
      		 <div class="row">                    
-	         <div class="col-md-12  "><input id ="oldpass" name ="oldpass" type="text" placeholder="<?php echo "Hello"; ?>" class="form-control"><br></div>
+	         <div class="col-md-12  "><input id ="oldpass" name ="oldpass" type="password" placeholder="Enter old password" class="form-control" required><br></div>
 		     </div>
 			 <label >New Password</label>     
 	 		 <div class="row">                     
-	         <div class="col-md-12  "><input id ="newpass" name ="newpass" type="text" placeholder="Enter Last Name" class="form-control"><br></div>
+	         <div class="col-md-12  "><input id ="newpass" name ="newpass" type="text" placeholder="Enter new password" class="form-control" required><br></div>
 		     </div>
             
             <label >Re-Enter new Password</label>
             <div class="row">
-           <div class="col-md-12"> <input id ="repass" name ="repass" type="text" placeholder="Enter your email-id" class="form-control" ><br></div></div>             
+           <div class="col-md-12"> <input id ="repass" name ="repass" type="text" placeholder="Re-enter password" class="form-control" required><br></div></div>             
 			<div class="row">
 			<div class="col-md-5">
-            <button type="button" class="btn btn-primary" onclick='updatepass()' >Change Password</button></div>
+            <button type="button" id ="passb"class="btn btn-primary" onclick='updatepass()' >Change Password</button></div>
             </div>
           	</form>
-          	
-          	<div id="ajaxDiv"></div>
+               	  <div class ="row">
+			      <div class = "col-md-10" id = "ajaxDiv"><img id="passimage"></div>
+			      </div>
  </body>
  </html>         	
