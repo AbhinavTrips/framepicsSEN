@@ -4,7 +4,7 @@ require 'connection.php';
 $query = "SELECT * FROM `frames` WHERE 1";
 
 if($query_run = mysql_query($query)){
-echo 'Hello';
+//echo 'Hello';
 	for($i=0;$i<mysql_num_rows($query_run);$i++){
 	$run = mysql_fetch_array($query_run);
 	$fid = $run['frameid'];
