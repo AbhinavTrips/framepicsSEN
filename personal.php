@@ -2,7 +2,9 @@
 require 'connection.php';
 require 'current_page.php';
 if(loggedin()){
-	if(isset($_GET['first'])||isset($_GET['last'])||isset($_GET['email'])||isset($_GET['mobile'])){
+
+//echo 'Hi This is Sneha';
+	if(isset($_GET['first'])&&isset($_GET['last'])&&isset($_GET['email'])&&isset($_GET['mobile'])&&!empty($_GET['first'])&&!empty($_GET['last'])&&!empty($_GET['email'])&&!empty($_GET['mobile'])){
 	$user = getuserfield('user_id');
 	//echo $user;
 	$first = mysql_real_escape_string($_GET['first']);
@@ -16,6 +18,8 @@ if(loggedin()){
 			echo 'Could not update information';
 			}
 				
+	}else{
+	echo 'Please fill all the fields';
 	}
 }else{
  echo 'Please login to continue';
