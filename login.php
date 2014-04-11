@@ -1,20 +1,48 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
-<head>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-<title>Untitled 1</title>
-</head>
+    <title>User Login</title>
 
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/signin.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="html5shiv.js"></script>
+      <script src="respond.min.js"></script>
+    <![endif]-->
+  </head>
 <body>
 <?php
 require 'connection.php';
-//require 'current_page.php';
+require 'current_page.php';
+
 if(isset($_POST['login_user'])&&isset($_POST['login_pass'])){
 $user = $_POST['login_user'];
 $password = $_POST['login_pass'];
 $password_hash = md5($password);
+if(!filter_var($user, FILTER_VALIDATE_EMAIL))
+  {
+  echo '
+  <div style="margin : 5%">
+  E-mail is not valid. Please add a domain name.Example:abc@xyz.com </div>';
+  }
+else
+  {
+  echo "E-mail is valid";
 
 
 $query = "SELECT `user_id` FROM `users` WHERE `email_id`='".mysql_real_escape_string($user)."' AND `password`='".mysql_real_escape_string($password)."' ";
@@ -25,10 +53,11 @@ if($query_run = mysql_query($query)){
 	} 	else if($query_num_rows==1){
 		$user_id = mysql_result($query_run,0,'user_id');
 		$_SESSION['user_id']= $user_id;
-		header('Location: home.php');
+		header('Location:home.php');
 		
 
 		}
+	}
 	}
 }
 if(loggedin()){
@@ -36,27 +65,47 @@ if(loggedin()){
 	$_GET[$name];
 	}
 ?> 
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="home.php">Framepics</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a></li>
+      		<li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          
+         <?php include 'search.php'; ?>
+        
+ </div>
+      </div>
+    </div>
+    <div class="row">
+          
+        <form class="form-signin" role="form" action="<?php echo $current_file; ?>" method="post">
+         <h2 class="form-signin-heading">Login to continue</h2>
 
- 
-  <form class="navbar-form navbar-right" role="form" action="<?php echo $current_file; ?>" method="post">
             <div class="form-group">
-              <input name ="login_user" type="text" placeholder="Email" class="form-control" required>
+              <input name ="login_user" type="email" placeholder="Email" class="form-control" required>
             </div>
             <div class="form-group">
               <input name="login_pass" type="password" placeholder="Password" class="form-control" required>
             </div>
-            <button type="submit" class="btn btn-primary">Sign in</button>
+            <button type="submit" class="btn btn-primary">Login</button>
+            <a href="register.php"><button type="button" class="btn btn-primary">Register</button></a>
           </form> 
-  <!--    <form class="form-signin" role="form" action="<?php echo $current_file; ?>" method="post">
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <input name="login_user" type="text" class="form-control" placeholder="username" required autofocus>
-        <input name ="login_pass" type="password" class="form-control" placeholder="Password" required>
-        <label class="checkbox">
-          <input type="checkbox" value="remember-me"> Remember me
-        </label>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      </form>-->
 
+    </div>
+
+ 
 </body>
 
 </html>
