@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                                                                          Implemented by Abhinav Tripathi 
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,6 +32,8 @@
     <![endif]-->
   </head>
 <body>
+
+
 <?php
 require 'connection.php';
 require 'current_page.php';
@@ -34,23 +42,23 @@ if(isset($_POST['login_user'])&&isset($_POST['login_pass'])){
 $user = $_POST['login_user'];
 $password = $_POST['login_pass'];
 $password_hash = md5($password);
-if(!filter_var($user, FILTER_VALIDATE_EMAIL))
+if(!filter_var($user, FILTER_VALIDATE_EMAIL))//Checking for valid format email id
   {
   echo '
   <div style="margin : 5%">
-  E-mail is not valid. Please add a domain name.Example:abc@xyz.com </div>';
+  E-mail is not valid. Please add a domain name.Example:abc@xyz.com </div>';// This message gets displayed for wrong email id format
   }
+  
+//If email is valid then proceed to the below section  
 else
   {
-  echo "E-mail is valid";
-
-
 $query = "SELECT `user_id` FROM `users` WHERE `email_id`='".mysql_real_escape_string($user)."' AND `password`='".mysql_real_escape_string($password)."' ";
+//Checking database for user with supplied email id
 if($query_run = mysql_query($query)){
 	$query_num_rows = mysql_num_rows($query_run);
-	if($query_num_rows==0){
+	if($query_num_rows==0){ // query returns 0 rows if no user exists with the supplied email
 		echo 'user does not exist';
-	} 	else if($query_num_rows==1){
+	} 	else if($query_num_rows==1){ // Query returns 1 for a unique user
 		$user_id = mysql_result($query_run,0,'user_id');
 		$_SESSION['user_id']= $user_id;
 		header('Location:home.php');
@@ -60,10 +68,6 @@ if($query_run = mysql_query($query)){
 	}
 	}
 }
-if(loggedin()){
-	$name = getuserfield('first_name');
-	$_GET[$name];
-	}
 ?> 
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
@@ -89,7 +93,7 @@ if(loggedin()){
       </div>
     </div>
     <div class="row">
-          
+<!----------------------------------------------------------------------- Login Forn starts here --------------------------------------------------------------------------------->         
         <form class="form-signin" role="form" action="<?php echo $current_file; ?>" method="post">
          <h2 class="form-signin-heading">Login to continue</h2>
 
@@ -102,7 +106,7 @@ if(loggedin()){
             <button type="submit" class="btn btn-primary">Login</button>
             <a href="register.php"><button type="button" class="btn btn-primary">Register</button></a>
           </form> 
-
+<!----------------------------------------------------------------------- Login Forn ends here ----------------------------------------------------------------------------------->         
     </div>
 
  
