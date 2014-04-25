@@ -1,4 +1,71 @@
-﻿function deliveryUpdate($id){
+﻿function reg(){
+ var ajaxRequest;  // The variable that makes Ajax possible!
+	  try{
+   // Opera 8.0+, Firefox, Safari
+   ajaxRequest = new XMLHttpRequest();
+ }catch (e){
+   // Internet Explorer Browsers
+   try{
+      ajaxRequest = new ActiveXObject("Msxml2.XMLHTTP");
+   }catch (e) {
+      try{
+         ajaxRequest = new ActiveXObject("Microsoft.XMLHTTP");
+      }catch (e){
+         // Something went wrong
+         alert("Your browser broke!");
+         return false;
+      }
+   }
+ }
+ // Create a function that will receive data 
+ // sent from the server and will update
+ // div section in the same page.
+ ajaxRequest.onreadystatechange = function(){
+ 
+   if(ajaxRequest.readyState != 4){
+ // alert(date);
+ document.getElementById(regDiv).setAttribute('src','images/ajax-loader.gif');
+
+    //  var ajaxDisplay = document.getElementById(date);
+	// ajaxDisplay.innerHTML = ajaxRequest.responseText;
+   }
+
+   if(ajaxRequest.readyState == 4){
+ // alert(date);
+      var ajaxDisplay = document.getElementById('regDiv');
+	 ajaxDisplay.innerHTML = ajaxRequest.responseText;
+   }
+ }
+ // Now get the value from user and pass it to
+ // server script.
+var first = document.getElementById('first').value;
+var last = document.getElementById('last').value;
+var email = document.getElementById('email').value;
+var repass = document.getElementById('repass').value;
+var mobile = document.getElementById('mobile').value;
+var pass = document.getElementById('pass').value;
+if(repass == pass){
+var queryString = "?first=" + first ;
+queryString += "&last=" +last+"&email=" +email+"&repass=" +repass+"&mobile=" +mobile+"&pass=" +pass;
+//alert(queryString);
+ajaxRequest.open("GET", "reg_process.php" + 
+                              queryString, true);
+                                ajaxRequest.send(null); 
+ }else{
+ alert('Emails do not match');
+ }
+
+
+}
+
+
+
+
+
+
+
+
+function deliveryUpdate($id){
  var ajaxRequest;  // The variable that makes Ajax possible!
 	  try{
    // Opera 8.0+, Firefox, Safari
@@ -52,7 +119,7 @@ var oid = $id;
 alert(oid);
 var queryString = "?del=" + delivery ;
 queryString += "&oid=" +oid;
-alert(queryString);
+//alert(queryString);
 ajaxRequest.open("GET", "deliveryUpdate.php" + 
                               queryString, true);
  ajaxRequest.send(null); 
@@ -88,16 +155,6 @@ function statusUpdate($id){
  // sent from the server and will update
  // div section in the same page.
  ajaxRequest.onreadystatechange = function(){
-   if(ajaxRequest.readyState != 4){
-   var b = 'imgs';
-   var id = $id;
-   var loads = b.concat($id);
- // alert(date);
- document.getElementById(loads).setAttribute('src','images/ajax-loader.gif');
-
-    //  var ajaxDisplay = document.getElementById(date);
-	// ajaxDisplay.innerHTML = ajaxRequest.responseText;
-   }
  
    if(ajaxRequest.readyState == 4){
    var stat = 'stat';
@@ -118,14 +175,15 @@ var oid = $id;
 alert(oid);
 var queryString = "?status=" + status ;
 queryString += "&oid=" +oid;
-alert(queryString);
+//alert(queryString);
 ajaxRequest.open("GET", "statusUpdate.php" + 
                               queryString, true);
  ajaxRequest.send(null); 
 }
 
 
-
+//////////////////////////////////// js function for adding a new address from user dashboard///////////////
+/////////////////////////////////////////// Nachiket Desai//////////////////////////////////////////////////
 
 
 function address(){
@@ -151,7 +209,14 @@ function address(){
  // sent from the server and will update
  // div section in the same page.
  ajaxRequest.onreadystatechange = function(){
+     if(ajaxRequest.readyState != 4){
  
+ document.getElementById('addimage').setAttribute('src','images/ajax-loader.gif');
+
+    //  var ajaxDisplay = document.getElementById(date);
+	// ajaxDisplay.innerHTML = ajaxRequest.responseText;
+   }
+
    if(ajaxRequest.readyState == 4){
       var ajaxDisplay = document.getElementById('newAdd');
 	 ajaxDisplay.innerHTML = ajaxRequest.responseText;
@@ -170,14 +235,14 @@ var email = document.getElementById('mail').value;
 var mobile = document.getElementById('mobi').value;
 var queryString = "?first=" + first ;
 queryString +=  "&last=" + last + "&add1=" + add1 + "&add2=" + add2 + "&city=" + city + "&state=" + state  + "&pin=" + pin + "&email=" + email + "&mobile=" + mobile;
-alert(queryString);
+//alert(queryString);
 ajaxRequest.open("GET", "new_add.php" + 
                               queryString, true);
  ajaxRequest.send(null); 
 }
 
 ////////////////////////////////////////////////////////////// Function to update password on dashboard.php page //////////////////////////////////////////////////////////////////
-//Browser Support Code
+ /////////////////////////////////////////////////////////               Function written by Sneha Reddy               ///////////////////////////////////////////////////////////
 function updatepass(){
  var ajaxRequest;  // The variable that makes Ajax possible!
 	  try{
@@ -202,6 +267,10 @@ function updatepass(){
  // div section in the same page.
  ajaxRequest.onreadystatechange = function(){
  
+     if(ajaxRequest.readyState != 4){
+ 
+ document.getElementById('passimage').setAttribute('src','images/ajax-loader.gif');
+   }
    if(ajaxRequest.readyState == 4){
       var ajaxDisplay = document.getElementById('ajaxDiv');
 	 ajaxDisplay.innerHTML = ajaxRequest.responseText;
@@ -214,7 +283,6 @@ var newpassword = document.getElementById('newpass').value;
 var repassword = document.getElementById('repass').value;
 var queryString = "?oldpass=" + password ;
 queryString +=  "&newpass=" + newpassword + "&repass=" + repassword;
-alert(queryString);
 ajaxRequest.open("GET", "pass_update_query.php" + 
                               queryString, true);
  ajaxRequest.send(null); 
@@ -297,20 +365,14 @@ function add_del(id){
  }
  // Now get the value from user and pass it to
  // server script.
-/*var password = document.getElementById('oldpass').value;
-var newpassword = document.getElementById('newpass').value;
-var repassword = document.getElementById('repass').value;*/
 var queryString = "?id=" + id ;
-/*queryString +=  "&newpass=" + newpassword + "&repass=" + repassword;
-alert(queryString);
-*/
 ajaxRequest.open("GET", "add_del.php" + queryString, true);
  ajaxRequest.send(null); 
 }
 
 
 ///////////////////////////////////////////////////////// Function to update personal information on dashboard.php page ///////////////////////////////////////////////////////////
-
+/////////////////////////////////////////////////////////               Function written by Dweep Trivedi               ///////////////////////////////////////////////////////////
 function personal(){
  var ajaxRequest;  // The variable that makes Ajax possible!
 	  try{
@@ -335,6 +397,11 @@ function personal(){
  // div section in the same page.
  ajaxRequest.onreadystatechange = function(){
  
+    if(ajaxRequest.readyState != 4){
+ 
+ document.getElementById('perimage').setAttribute('src','images/ajax-loader.gif');
+   }
+
    if(ajaxRequest.readyState == 4){
       var ajaxDisplay = document.getElementById('pers');
 	 ajaxDisplay.innerHTML = ajaxRequest.responseText;
@@ -348,7 +415,6 @@ var email = document.getElementById('email').value;
 var mobile = document.getElementById('mobile').value;
 var queryString = "?first=" + firstname ;
 queryString +=  "&last=" + lastname + "&email=" + email + "&mobile=" + mobile;
-alert(queryString);
 ajaxRequest.open("GET", "personal.php" + 
                               queryString, true);
  ajaxRequest.send(null); 
