@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+                                                                           Implemented by Abhinav Tripathi. 
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +13,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
-    <title>User Login</title>
+    <title>User Registration</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -28,6 +32,8 @@
 </head>
 
 <body>
+<!------------------------------------------------------------------------ Navigation Bar Starts Here ---------------------------------------------------------------------------->
+
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -52,9 +58,17 @@
  </div>
       </div>
     </div>
-    <div class="row  col-md-offset-3"> 
-    <div class="row col-md-6 " style="margin:5%">
-          
+    
+<!------------------------------------------------------------------------ Navigation Bar Ends Here ---------------------------------------------------------------------------->
+
+<!------------------------------------------------------------------------  Main Body Starts Here ---------------------------------------------------------------------------->
+
+
+ <div class="row  col-md-offset-3"> 
+ <div class="row col-md-6 " style="margin:5%">
+ 
+<!------------------------------------------------------------------- Registration Form starts here ------------------------------------------------------------------------------>         
+
   <form class="form-horizontal" id ="form" role="form" method="get" action="reg_process.php">
   
       <div class="row">
@@ -81,6 +95,11 @@
           <div id="regDiv"></div>
     </div>
 </div>
+<!--------------------------------------------------------------------- Registration Form ends here ------------------------------------------------------------------------------>         
+
+
+<!------------------------------------------------------------------------  Main Body Ends Here ---------------------------------------------------------------------------->
+
 </body>
 
 </html>
