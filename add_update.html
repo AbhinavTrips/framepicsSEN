@@ -1,25 +1,58 @@
-﻿<h2>Personal Info</h2>
-  <form class="form-horizontal" id ="updateForm" name ="updateForm" role="form" action="action.php" method="post">
+﻿<!DOCTYPE html>
+<html>
+<!-- Personal Information update form to be included on dashboard.php
+
+by: Dweep Trivedi
+
+-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="docs-assets/ico/favicon.png">
+	<script src="jsfunc.js"></script>
+	    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="dashboard.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<h2>Personal Info</h2>
+  <form class="form-horizontal" id ="updateForm" name ="updateForm" role="form">
   
            	<label>Name</label> 
      		 <div class="row">                    
-	         <div class="col-md-12  "><input id ="firstName" name ="first_name" type="text" placeholder="<?php echo "Hello"; ?>" class="form-control"></div>
+	         <div class="col-md-12  "><input id ="firstName" name ="first_name" type="text" placeholder="Enter First Name" class="form-control" required></div>
 		     </div>
 	 		 <div class="row">                     
-	         <div class="col-md-12  "><input id ="lastName" name ="last_name" type="text" placeholder="Enter Last Name" class="form-control"><br></div>
+	         <div class="col-md-12  "><input id ="lastName" name ="last_name" type="text" placeholder="Enter Last Name" class="form-control" required><br></div>
 		     </div>
             
             <label >Email</label>
             <div class="row">
-           <div class="col-md-12"> <input id ="email" name ="email_id" type="email" placeholder="Enter your email-id" class="form-control" ><br></div></div>
+           <div class="col-md-12"> <input id ="email" name ="email_id" type="email" placeholder="Enter your email-id" class="form-control" required ><br></div></div>
                
             <label>Mobile</label>
             <div class="row">
-           <div class="col-md-12"> <input id="mobile" name ="mobile" type="tel" placeholder="Enter 10 digit mobile number" class="form-control" ><br></div></div>
+           <div class="col-md-12"> <input id="mobile" name ="mobile" type="tel" placeholder="Enter 10 digit mobile number" class="form-control" required ><br></div></div>
 
 			<div class="row">
 			<div class="col-md-5">
-            <button type="submit" class="btn btn-primary" onclick='ajaxFunction()' >Add</button></div>
+            <button type="button" class="btn btn-primary" onclick='personal()'>Update</button></div>
             </div>
-          	</form>
+          	</form>    
+          	<!-- Div to display server response -->      	
+               	  <div class ="row">
+			      <div class = "col-md-10" id = "pers"><img id="perimage"></div>
+			      </div>
+
+          	 </body>
+ </html>         	
+
           	
