@@ -4,6 +4,11 @@ require 'connection.php';
 ?>
 
 <!DOCTYPE html>
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+						Home Page as seen by a logged in user. Implemented by Abhinav Tripathi and Sneha Reddy(Slider Gallery)
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -21,12 +26,6 @@ require 'connection.php';
 	<!--Flex Slider-->
 	<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
 	
-	<!-- Modernizr -->
-  	<script src="js/modernizr.js"></script>
-
-    <!-- Custom styles for this template -->
-    <link href="signin.css" rel="stylesheet">
-
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 
@@ -35,6 +34,11 @@ require 'connection.php';
       <script src="html5shiv.js"></script>
       <script src="respond.min.js"></script>
     <![endif]-->
+    <style type="text/css">
+	.auto-style1 {
+		color: #FFFFFF;
+	}
+	</style>
   </head>
 
   <body>
@@ -56,7 +60,7 @@ echo
           <ul class="nav navbar-nav">';
            
 
-      echo '<li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a></li>
+      echo '<li><a href="view_cart.php"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a></li>
 			<li><a href="login.php"><span class="glyphicon glyphicon-off"></span> Login</a></li> 	
 			<li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -89,7 +93,7 @@ echo'
 			echo '<li class="active"><span class="glyphicon glyphicon-home"></span></a></li>' ;			 
 		
            echo '
-            <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>';
+            <li><a href="view_cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>';
 		echo '<li><a href="logout.php"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
 			 <li><a href="dashboard.php"><span class="glyphicon glyphicon-user"></span> '.$first_name.'</a></li>            
             </ul>';
@@ -106,7 +110,9 @@ echo'
 -->
 <div class="row" style="margin:5% ">
 <div class="row">
-<div class="col-md-5 col-md-offset-1" style="text-align:center; height:400px; background-color:aqua">Photo Frames
+<div class="col-md-5 col-md-offset-1" style="text-align:center; height:400px; background-color:#D1D9DE">
+	<span class="auto-style1">Photo Frames
+  </span>
   <section class="slider">
         <div class="flexslider carousel">
           <ul class="slides">
@@ -124,18 +130,18 @@ $i++;
           </ul>
         </div>
       </section>
-      <button type="button" class="btn btn-success btn-lg">
+  <a href="upload_test.php"><button type="button" class="btn btn-success btn-lg">
   <span class="glyphicon glyphicon-upload"></span> Upload Photo For Choosing Frame
-</button>
-	<div class="row">
-		<div>\'OR\'</div>
+</button></a>
+<!--	<div class="row">
+		<div class="auto-style1">OR</div>
 	</div>
-	<div class="row">
-		<div>Continue with sample pictures</div>	
+--><!--	<div class="row">
+		<div class="auto-style1">Continue with sample pictures</div>	
 	</div>
-
+-->
 </div>
-<div class="col-md-5" style="text-align:center; height:400px; background-color:beige">Digital Painting
+<div class="col-md-5" style="text-align:center; height:400px; background-color:#C3C3E6">Digital Printing
   <section class="slider">
         <div class="flexslider carousel">
           <ul class="slides">
@@ -191,17 +197,17 @@ $i++;
         </div>
       </section>
 <button type="button" class="btn btn-success btn-lg">
-  <span class="glyphicon glyphicon-upload"></span> Upload Photo For Digital Painting
+  <span class="glyphicon glyphicon-upload"></span> Upload Photo For Digital Printing
 </button>
 	</div>
 </div>
-<div class="row">
-<div class="col-md-10 col-md-offset-1" style="height:200px;text-align:center;background-color:red ">Recommended Frames
+</div>
+<!--<div class="row">
+--><div class="col-md-12" style="height:150px;text-align:center;background-color:black">
 
 </div>
-</div>
-?>
-</div>
+<!--</div>
+-->
 <!-- jQuery -->
   <script src="jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.min.js">\x3C/script>')</script>
