@@ -6,7 +6,7 @@ require 'connection.php';
 <!DOCTYPE html>
 <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-						Home Page as seen by a logged in user. Implemented by Abhinav Tripathi and Sneha Reddy(Slider Gallery)
+						       Home Page as seen by a logged in user. Implemented by Abhinav Tripathi and Sneha Reddy(Slider Gallery)
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 <html lang="en">
@@ -42,7 +42,10 @@ require 'connection.php';
   </head>
 
   <body>
-  <?php
+ <?php
+ 
+////////////////////////////////////////////////////////////////////// Navbar if not logged in //////////////////////////////////////////////////////////////////////////////////// 
+
 if(!loggedin()){
 echo
  '<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -71,10 +74,12 @@ echo'
  </div>
       </div>
     </div>';
-/*    <div class="container">';
-    include 'home_signin.php';
-    echo '</div>';
-*/}else if(loggedin()){
+}    
+    
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////      
+
+//////////////////////////////////////////////////////////////////////// Navbar if logged in ////////////////////////////////////////////////////////////////////////////////////// 
+else if(loggedin()){
 	echo   '<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -89,7 +94,7 @@ echo'
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav"><a href="#">';
         
-			$first_name = getuserfield('first_name');
+			$first_name = getuserfield('first_name');// Get user's firstname using the function 'getuserfield' defined in current_page.php
 			echo '<li class="active"><span class="glyphicon glyphicon-home"></span></a></li>' ;			 
 		
            echo '
@@ -104,19 +109,25 @@ echo'
     </div>';
 
 }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////      
+
 ?> 
 
-<!--<div class="container" style="margin:5%">
--->
 <div class="row" style="margin:5% ">
 <div class="row">
+
+<!------------------------------------------------------------------- Div for photo frame Starts here ---------------------------------------------------------------------------->
+
 <div class="col-md-5 col-md-offset-1" style="text-align:center; height:400px; background-color:#D1D9DE">
 	<span class="auto-style1">Photo Frames
   </span>
-  <section class="slider">
+  
+<!---------------------------------------------------------------------- Code for Image gallery ---------------------------------------------------------------------------------->  
+ 
+ <section class="slider">
         <div class="flexslider carousel">
           <ul class="slides">
-<!-- Code to display images in slider -->          
+<!-- Code to display images in slider. It iterates though all the images in images/frame_demo folder -->          
 <?php
 $dirname = "images/frame_demo/";
 $images = glob($dirname."*.*");
@@ -130,17 +141,18 @@ $i++;
           </ul>
         </div>
       </section>
+<!---------------------------------------------------------------------- Code for Image gallery Ends here ----------------------------------------------------------------------->  
+  
   <a href="upload_test.php"><button type="button" class="btn btn-success btn-lg">
   <span class="glyphicon glyphicon-upload"></span> Upload Photo For Choosing Frame
 </button></a>
-<!--	<div class="row">
-		<div class="auto-style1">OR</div>
-	</div>
---><!--	<div class="row">
-		<div class="auto-style1">Continue with sample pictures</div>	
-	</div>
--->
 </div>
+<!---------------------------------------------------------------- Div for photo frame Ends here --------------------------------------------------------------------------------->
+
+
+<!------------------------------------------------------------ Div for Digital Painting Starts here ------------------------------------------------------------------------------>
+
+
 <div class="col-md-5" style="text-align:center; height:400px; background-color:#C3C3E6">Digital Printing
   <section class="slider">
         <div class="flexslider carousel">
@@ -157,49 +169,17 @@ $i++;
 }
 ?>
 
-<!--            <li>
-  	    	    <img src="images/kitchen_adventurer_cheesecake_brownie.jpg" />
-  	    		</li>
-  	    		<li>
-  	    	    <img src="images/kitchen_adventurer_lemon.jpg" />
-  	    		</li>
-  	    		<li>
-  	    	    <img src="images/kitchen_adventurer_donut.jpg" />
-  	    		</li>
-  	    		<li>
-  	    	    <img src="images/kitchen_adventurer_caramel.jpg" />
-  	    		</li>
-            <li>
-  	    	    <img src="images/kitchen_adventurer_cheesecake_brownie.jpg" />
-  	    		</li>
-  	    		<li>
-  	    	    <img src="images/kitchen_adventurer_lemon.jpg" />
-  	    		</li>
-  	    		<li>
-  	    	    <img src="images/kitchen_adventurer_donut.jpg" />
-  	    		</li>
-  	    		<li>
-  	    	    <img src="images/kitchen_adventurer_caramel.jpg" />
-  	    		</li>
-            <li>
-  	    	    <img src="images/kitchen_adventurer_cheesecake_brownie.jpg" />
-  	    		</li>
-  	    		<li>
-  	    	    <img src="images/kitchen_adventurer_lemon.jpg" />
-  	    		</li>
-  	    		<li>
-  	    	    <img src="images/kitchen_adventurer_donut.jpg" />
-  	    		</li>
-  	    		<li>
-  	    	    <img src="images/kitchen_adventurer_caramel.jpg" />
-  	    		</li>
--->          </ul>
+</ul>
         </div>
       </section>
 <button type="button" class="btn btn-success btn-lg">
   <span class="glyphicon glyphicon-upload"></span> Upload Photo For Digital Printing
 </button>
 	</div>
+	
+<!-------------------------------------------------------------- Div for Digital Painting Ends here ------------------------------------------------------------------------------>
+	
+	
 </div>
 </div>
 <!--<div class="row">
@@ -208,7 +188,7 @@ $i++;
 </div>
 <!--</div>
 -->
-<!-- jQuery -->
+<!-- jQuery for the slider script -->
   <script src="jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.min.js">\x3C/script>')</script>
 
@@ -232,16 +212,5 @@ $i++;
       });
     });
   </script>
-
-
-
-<!--</div>
---> <!-- /container -->
-
-<!--<div class="col-md-offset-1 style="margin:5% ">
--->
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
   </body>
 </html>
