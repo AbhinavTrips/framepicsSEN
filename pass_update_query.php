@@ -1,4 +1,8 @@
 <?php
+/*
+Sql for updating password. Called from updatepass function in jsfunc.js file
+-Sneha 
+*/
 require 'connection.php';
 require 'current_page.php';
 if(loggedin()){
