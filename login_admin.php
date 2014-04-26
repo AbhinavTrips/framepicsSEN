@@ -1,13 +1,20 @@
 <?php
 require 'connection.php';
 require 'admin.php';
-//require 'current_page.php';
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+						   							    Login page for the Admin. Implemented by Abhinav Tripathi 
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
 if(isset($_POST['login_user'])&&isset($_POST['login_pass'])){
 $user = $_POST['login_user'];
 $password = $_POST['login_pass'];
 echo $user;
 echo $password;
-$query = "SELECT `adminid` FROM `admin` WHERE `name`='".mysql_real_escape_string($user)."' AND `password`='".mysql_real_escape_string($password)."' ";
+$query = "SELECT `adminid` FROM `admin` WHERE `name`='".mysql_real_escape_string($user)."' AND `password`='".mysql_real_escape_string($password)."' "; //checks values in admin table
 if($query_run = mysql_query($query)){
 	$query_num_rows = mysql_num_rows($query_run);
 	if($query_num_rows==0){
@@ -58,7 +65,7 @@ if(adloggedin()){
   <body>
 
     <div class="container">
-
+<!-- login form -->
 
  
   <form class="form-signin" role="form" action="<?php echo $current_file; ?>" method="post">
