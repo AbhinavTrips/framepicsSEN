@@ -1,19 +1,12 @@
 
 <?php
 include('connection.php');
-$firstname = $_GET['firstname'];
-$lastname = $_GET['lastname'];
-$email = $_GET['email'];
-$password = $_GET['password'];
-$mobile = $_GET['mobile'];
-$address1 = $_GET['address1'];
-$address2 = $_GET['address2'];
-$city = $_GET['city'];
-$state = $_GET['state'];
-$pin = $_GET['pin'];
-	// Escape User Input to help prevent SQL Injection
+$firstname = mysql_real_escape_string($_GET['firstname']);
+$lastname = mysql_real_escape_string($_GET['lastname']);
+$email = mysql_real_escape_string($_GET['email']);
+$mobile = mysql_real_escape_string($_GET['mobile']);
 //$query1 = "UPDATE `addres` SET `sex`= 'f' WHERE `sex`= '$sex'";`lastname`='$lastname',`address1`='$address1',`address2`='$address2',`city`='$city',`state`='$state',`pin`='$pin'
-$query1 = "UPDATE `address` SET `firstname`='$firstname', WHERE `aid`='1'";
+$query1 = "UPDATE `address` SET `firstname`='$firstname',`lastname`='$lastname',`email`='$email',`mobile`='$mobile' WHERE `user_id`='$user'";
 echo $query1;
 $query_run = mysql_query($query1);
 ?>

@@ -2,7 +2,7 @@
 include 'connection.php';
 require 'current_page.php';
 if(loggedin()){
-//echo $_SESSION['user_id'];
+
 }
 ?>
 <!DOCTYPE html>

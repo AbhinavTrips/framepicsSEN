@@ -47,7 +47,7 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a></li>
+            <li><a href="view_cart.php"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a></li>
             <li><a href="login.php"><span class="glyphicon glyphicon-off"></span>Login</a></li>
       		<li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>

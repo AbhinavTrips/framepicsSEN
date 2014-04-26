@@ -1,10 +1,6 @@
 <?php	
 require 'current_page.php';
 require 'connection.php';
-
-if(loggedin()){
-header('Location:home.php');
-}
 ?>
 
 <!DOCTYPE html>
@@ -17,13 +13,19 @@ header('Location:home.php');
     <meta name="author" content="">
     <link rel="shortcut icon" href="docs-assets/ico/favicon.png">
 
-    <title>Signin Template for Bootstrap</title>
+    <title>Home</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap.css" rel="stylesheet">
+    
+	<!--Flex Slider-->
+	<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+	
+	<!-- Modernizr -->
+  	<script src="js/modernizr.js"></script>
 
     <!-- Custom styles for this template -->
-    <link href="css/signin.css" rel="stylesheet">
+    <link href="signin.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -32,15 +34,19 @@ header('Location:home.php');
     <!--[if lt IE 9]>
       <script src="html5shiv.js"></script>
       <script src="respond.min.js"></script>
-
     <![endif]-->
+    <style type="text/css">
+	.auto-style1 {
+		color: #FFFFFF;
+	}
+	</style>
   </head>
 
   <body>
-
-  <?php				
-if(loggedin()){
-	/*	echo   '<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <?php
+if(!loggedin()){
+echo
+ '<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -49,31 +55,29 @@ if(loggedin()){
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="home.php">Framepics</a>
         </div>
         <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-            <li><a href="#contact"><span class="glyphicon glyphicon-globe"></span> Notifications</a></li>
-            <li><a href="#about"><span class="glyphicon glyphicon-cog"></span> Account</a></li>
- 
-           <li><a href="#about"><span class="glyphicon glyphicon-info-sign"></span> Report Interpreter</a></li>
-             <li><a href="#contact"><span class="glyphicon glyphicon-tint"></span> Blood Required</a></li>
+          <ul class="nav navbar-nav">';
+           
 
-
+      echo '<li><a href="view_cart.php"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a></li>
+			<li><a href="login.php"><span class="glyphicon glyphicon-off"></span> Login</a></li> 	
+			<li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
           </ul>';
           
           include 'search.php';
-   echo ' </div>
+echo'           
+ </div>
       </div>
-    </div>';*/
-    header('Location:home.php');
- 
-	}	else {
-
-	 echo'
-	  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container col-md-12">
+    </div>';
+/*    <div class="container">';
+    include 'home_signin.php';
+    echo '</div>';
+*/}else if(loggedin()){
+	echo   '<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
@@ -81,43 +85,162 @@ if(loggedin()){
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="home.php">Framepics</a>
         </div>
         <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-            
-          </ul>';
-          	 include 'login.php';
-         
- echo '         </div>
+          <ul class="nav navbar-nav"><a href="#">';
+        
+			$first_name = getuserfield('first_name');
+			echo '<li class="active"><span class="glyphicon glyphicon-home"></span></a></li>' ;			 
+		
+           echo '
+            <li><a href="view_cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>';
+		echo '<li><a href="logout.php"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
+			 <li><a href="dashboard.php"><span class="glyphicon glyphicon-user"></span> '.$first_name.'</a></li>            
+            </ul>';
+          
+          include 'search.php';
+   echo ' </div>
       </div>
     </div>';
 
-		//include 'login.php';
-		}
+}
+?> 
 
+<!--<div class="container" style="margin:5%">
+-->
+<div class="row" style="margin:5% ">
+<div class="row">
+<div class="col-md-5 col-md-offset-1" style="text-align:center; height:400px; background-color:#D1D9DE">
+	<span class="auto-style1">Photo Frames
+  </span>
+  <section class="slider">
+        <div class="flexslider carousel">
+          <ul class="slides">
+<!-- Code to display images in slider -->          
+<?php
+$dirname = "images/frame_demo/";
+$images = glob($dirname."*.*");
+$i=0;
+foreach($images as $image) {
+echo '<li><img src="'.$images[$i].'" /></li>';
+$i++;
+
+}
+?>
+          </ul>
+        </div>
+      </section>
+  <a href="upload_test.php"><button type="button" class="btn btn-success btn-lg">
+  <span class="glyphicon glyphicon-upload"></span> Upload Photo For Choosing Frame
+</button></a>
+	<div class="row">
+		<div class="auto-style1">OR</div>
+	</div>
+	<div class="row">
+		<div class="auto-style1">Continue with sample pictures</div>	
+	</div>
+
+</div>
+<div class="col-md-5" style="text-align:center; height:400px; background-color:#C3C3E6">Digital Printing
+  <section class="slider">
+        <div class="flexslider carousel">
+          <ul class="slides">
+<!-- Code to display images in slider -->          
+<?php
+$dirname = "images/frame_demo/";
+$images = glob($dirname."*.*");
+$i=0;
+foreach($images as $image) {
+echo '<li><img src="'.$images[$i].'" /></li>';
+$i++;
+
+}
 ?>
 
- <div class="container" style="margin-top:5%">
- <div class="row">
- <div class="col-lg-7"style="background-image:url('images/abc.png.JPG');height:500px">Left one</div>
- <div class="col-lg-5">
+<!--            <li>
+  	    	    <img src="images/kitchen_adventurer_cheesecake_brownie.jpg" />
+  	    		</li>
+  	    		<li>
+  	    	    <img src="images/kitchen_adventurer_lemon.jpg" />
+  	    		</li>
+  	    		<li>
+  	    	    <img src="images/kitchen_adventurer_donut.jpg" />
+  	    		</li>
+  	    		<li>
+  	    	    <img src="images/kitchen_adventurer_caramel.jpg" />
+  	    		</li>
+            <li>
+  	    	    <img src="images/kitchen_adventurer_cheesecake_brownie.jpg" />
+  	    		</li>
+  	    		<li>
+  	    	    <img src="images/kitchen_adventurer_lemon.jpg" />
+  	    		</li>
+  	    		<li>
+  	    	    <img src="images/kitchen_adventurer_donut.jpg" />
+  	    		</li>
+  	    		<li>
+  	    	    <img src="images/kitchen_adventurer_caramel.jpg" />
+  	    		</li>
+            <li>
+  	    	    <img src="images/kitchen_adventurer_cheesecake_brownie.jpg" />
+  	    		</li>
+  	    		<li>
+  	    	    <img src="images/kitchen_adventurer_lemon.jpg" />
+  	    		</li>
+  	    		<li>
+  	    	    <img src="images/kitchen_adventurer_donut.jpg" />
+  	    		</li>
+  	    		<li>
+  	    	    <img src="images/kitchen_adventurer_caramel.jpg" />
+  	    		</li>
+-->          </ul>
+        </div>
+      </section>
+<button type="button" class="btn btn-success btn-lg">
+  <span class="glyphicon glyphicon-upload"></span> Upload Photo For Digital Printing
+</button>
+	</div>
+</div>
+</div>
+<!--<div class="row">
+--><div class="col-md-12" style="height:150px;text-align:center;background-color:black">
 
-        <?php
-        if(!loggedin()){
-        include 'register.php';
+</div>
+<!--</div>
+-->
+<!-- jQuery -->
+  <script src="jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.min.js">\x3C/script>')</script>
+
+  <!-- FlexSlider -->
+  <script defer src="js/jquery.flexslider.js"></script>
+
+  <script type="text/javascript">
+    $(function(){
+      SyntaxHighlighter.all();
+    });
+    $(window).load(function(){
+      $('.flexslider').flexslider({
+        animation: "slide",
+        animationLoop: false,
+        itemWidth: 250,
+        itemMargin: 5,
+        pausePlay: true,
+        start: function(slider){
+          $('body').removeClass('loading');
         }
-        ?>
-       
-    </div> 		
-</div>
-</div>
- <!-- /container -->
+      });
+    });
+  </script>
 
 
+
+<!--</div>
+--> <!-- /container -->
+
+<!--<div class="col-md-offset-1 style="margin:5% ">
+-->
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

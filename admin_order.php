@@ -24,7 +24,8 @@ if($run = mysql_query($query)){
 			//$colorf = $query_arrayf['color'];
 			}
 		}
-	$querym = "SELECT `color` FROM `mount` WHERE `mountid`='$mid'";
+	$querym = "SELECT `color` FROM `mount` WHERE `mountid`='$mid'";// fetching frame color from frames table
+
 		if($runm = mysql_query($querym)){
 			for($m=0;$m<mysql_num_rows($runm);$m++){
 			$query_arraym = mysql_fetch_array($runm);
@@ -32,7 +33,8 @@ if($run = mysql_query($query)){
 			}
 		}
 		
-	$queryr = "SELECT * from `reciever` WHERE `orderid` = '$oid'";
+	$queryr = "SELECT * from `reciever` WHERE `orderid` = '$oid'";// fetching mount color from mount table
+
 		if($runr = mysql_query($queryr)){
 				for($r=0;$r<mysql_num_rows($runr);$r++){
 				$query_arrayr = mysql_fetch_array($runr);

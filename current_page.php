@@ -24,6 +24,9 @@ function getuserfield($field){
 	}
 }
 
+/*$_SESSION['username'] = getuserfield('first_name');
+$_SESSION['user_id'] = getuserfield('user_id');
+*/
 function numadd($id){
 $num ="SELECT COUNT(`aid`) FROM `address` WHERE `userid`='$id'";
 $run = mysql_query($num);

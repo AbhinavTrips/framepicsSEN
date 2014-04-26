@@ -13,7 +13,7 @@ if(isset($name)){
 	echo 'OK'.'<br>';
 	$location_pic = 'user_folders/';
 	echo $location_pic;
-		if(($ext=='png'|| $ext=='jpeg'|| $ext=='jpg') && move_uploaded_file($tmp,$location_pic)){
+		if(($ext=='png'|| $ext=='jpeg'|| $ext=='jpg') && move_uploaded_file($tmp,$location_pic.$name)){
 		echo 'successfully uploaded';
 		//echo $user;
 		}else{

@@ -1,9 +1,12 @@
 <?php
 require 'connection.php';
-//require 'admin.php';
+/*---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ 												Page to let the admin view all the pending orders. Implemented by Abhinav Tripathi
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 if(adloggedin()){
-/*$user = $_SESSION['user_id'];
-*/$query = "SELECT * FROM `order_frame` WHERE `status`='processing'";
+$query = "SELECT * FROM `order_frame` WHERE `status`='processing'";// look out for the fields where status is 'processing'
 if($run = mysql_query($query)){
 	for($i=0;$i<mysql_num_rows($run);$i++){
 	$query_array=mysql_fetch_array($run);
@@ -13,14 +16,14 @@ if($run = mysql_query($query)){
 	$status = $query_array['status'];
 	$delivery = $query_array['delivery'];
 	$price = $query_array['price'];
-	$queryf = "SELECT `color` FROM `frames` WHERE `frameid`='$fid'";
+	$queryf = "SELECT `color` FROM `frames` WHERE `frameid`='$fid'"; // fetching frame color from frames table
 		if($runf = mysql_query($queryf)){
 			for($f=0;$f<mysql_num_rows($runf);$f++){
 			$query_arrayf = mysql_fetch_array($runf);
 			$colorf = $query_arrayf['color'];
 			}
 		}
-	$querym = "SELECT `color` FROM `mount` WHERE `mountid`='$mid'";
+	$querym = "SELECT `color` FROM `mount` WHERE `mountid`='$mid'"; // fetching mount color from mount table
 		if($runm = mysql_query($querym)){
 			for($m=0;$m<mysql_num_rows($runm);$m++){
 			$query_arraym = mysql_fetch_array($runm);
@@ -28,7 +31,7 @@ if($run = mysql_query($query)){
 			}
 		}
 		
-	$queryr = "SELECT * from `reciever` WHERE `orderid` = '$oid'";
+	$queryr = "SELECT * from `reciever` WHERE `orderid` = '$oid'"; //Fetching receiver details as admin must know where to send the product
 		if($runr = mysql_query($queryr)){
 				for($r=0;$r<mysql_num_rows($runr);$r++){
 				$query_arrayr = mysql_fetch_array($runr);
@@ -53,8 +56,10 @@ if($run = mysql_query($query)){
                   <td>
                   <div class="row">
                   <div class="col-md-12">
-    			  <div class="input-group">
-     			  <input type="text" class="form-control" id ="status'.$oid.'" name ="status" type="text" placeholder="'.$status.'">
+    			  <div class="input-group">';
+    			  
+    	//status field is editable and by default shows current status		  
+     	echo '	  <input type="text" class="form-control" id ="status'.$oid.'" name ="status" type="text" placeholder="'.$status.'">
      			  <span class="input-group-btn">
      			  <button id = "'.$oid.'" class="btn btn-default" type="button" onclick="statusUpdate('.$oid.')"><span class="glyphicon glyphicon-ok"></span></button>
      			  </span></div>
@@ -68,7 +73,11 @@ if($run = mysql_query($query)){
                   <td>
                   <div class="row">                    
 	     	         <div class="col-md-6">
-	            		   <div class="input-group">
+	            		   <div class="input-group">';
+	            		   
+	     //delivery field is editable and by default shows delivery date		  
+
+	    echo '        		   
 	     	      		   <input id ="dates'.$oid.'" name ="status" type="date" placeholder="'.$delivery.'" class="form-control" value="'.$delivery.'">
    	        	    	   <span class="input-group-btn">    	         
 					 	   <button id = "dateb'.$oid.'" type="button" class="btn btn-primary" onclick="deliveryUpdate('.$oid.')"><span class="glyphicon glyphicon-ok"></span></button></span></div>	     	        

@@ -3,12 +3,13 @@ require 'connection.php';
 require 'current_page.php';
 if(loggedin()){
 $id = mysql_real_escape_string($_GET['id']);
+$user = $_SESSION['user_id'];
 $i = 0;
 $j = 0;
 $k = 0;
-$query1 = "UPDATE `address` SET `def`='2' WHERE `userid`='1' AND `def`='1'";
-$query2 = "UPDATE `address` SET `def`='1' WHERE `userid`='1' AND `aid`='$id'";
-$query3 = "UPDATE `address` SET `def`='0' WHERE `userid`='1' AND `def`='2'";
+$query1 = "UPDATE `address` SET `def`='2' WHERE `userid`='$user' AND `def`='1'";
+$query2 = "UPDATE `address` SET `def`='1' WHERE `userid`='$user' AND `aid`='$id'";
+$query3 = "UPDATE `address` SET `def`='0' WHERE `userid`='$user' AND `def`='2'";
 	if($query_run = mysql_query($query1)){
 //	echo " Default address changed ";
 	$i = 1;
