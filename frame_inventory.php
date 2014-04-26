@@ -1,6 +1,10 @@
 <?php
 require 'connection.php';
-//require 'admin.php';
+/*---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ 													Page to let the admin view his inventory. Implemented by Abhinav Tripathi
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 $query = "SELECT * FROM `frames` WHERE 1";
 
 if($query_run = mysql_query($query)){
@@ -13,6 +17,7 @@ if($query_run = mysql_query($query)){
 	$type = $run['ftype'];
 	$base = $run['baseprice'];
 	$stock = $run['stock'];
+	//returning the table data
 		echo '<tr>
                   <td>'.$fid.'</td>
                   <td>'.$fname.'</td>

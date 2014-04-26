@@ -4,6 +4,11 @@ require 'admin.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ 													Page to let the admin view his inventory. Implemented by Abhinav Tripathi
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,7 +36,7 @@ require 'admin.php';
   </head>
 
   <body>
-
+<!------------------------------------------------------------------- Navigation Bar starts here --------------------------------------------------------------------------------->
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -46,23 +51,23 @@ require 'admin.php';
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
         <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
-<!--            <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
--->        <?php    
+ <?php    
             if(adloggedin()){
 		echo '<li><a href="logout.php"><span class="glyphicon glyphicon-off"></span> Logout</a></li>';}
 			else{
 		echo '<li><a href="login_admin.php"><span class="glyphicon glyphicon-off"></span> Login</a></li>';
 			}
 			?>
-<!--			 <li><a href="dashboard_admin.php"><span class="glyphicon glyphicon-user"></span></a></li>            
--->            </ul>
+            </ul>
 		 </div>
       </div>
     </div>
+<!-------------------------------------------------------------------- Navigation Bar ends here ---------------------------------------------------------------------------------->
 
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
+<!----------------------------------------------------------------------- Side Bar starts here ----------------------------------------------------------------------------------->        
           <ul class="nav nav-sidebar">
             <li><a href="dashboard_admin.php#pending">Pending Orders</a></li>
             <li><a href="dashboard_admin.php#allOrders">All Orders</a></li>
@@ -70,6 +75,7 @@ require 'admin.php';
             <li><a href="admin_frame_upload.php#inventory">Manage Inventory</a></li>
             <li class="active"><a href="#">Inventory</a></li>
           </ul>
+<!----------------------------------------------------------------------- Side Bar ends here ------------------------------------------------------------------------------------->
       
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -89,8 +95,8 @@ require 'admin.php';
               <tbody id="tabOrder">
             
              <?php
+             // frame_inventory.php displays the items in inventory
            require 'frame_inventory.php';
-            // require 'admin_pending.php';
              ?>
    
               </tbody>
