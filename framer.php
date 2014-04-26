@@ -2,6 +2,10 @@
 require 'current_page.php';
 require 'connection.php';
 ?>
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ 													Page where framing is done . Implemented by Anuroop Kuppam ..... Layout by Abhinav Tripathi
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -49,17 +53,6 @@ $(function() {
 		$('.frames img').imageframer();
 });
 
-/*function handler() {
-	$("span").removeClass();
-	var obj = $(event.target).attr('class');
-	var size = $(event.target).value;
-	console.log(size);
-	var framer = '.frames#'+obj;
-	$(framer).imageframer(
-	{ 
-		frameSize: size 
-	});		
-}*/
 
 function mount_handler(color) {
 	var frame = $(color).attr('class');	
