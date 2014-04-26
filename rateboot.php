@@ -1,4 +1,5 @@
 <?php
+// User rating script.... Not used in website
 if(isset($_GET['check'])){
 $_GET['check'];
 }
@@ -7,7 +8,7 @@ $_GET['check'];
 <html lang="en">
 <head>
 	<meta charset="UTF-8"/>
-	<title>Krajee JQuery Plugins - &copy; Kartik</title>
+	<title></title>
 	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/star-rating.css" media="all" rel="stylesheet" type="text/css"/>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
