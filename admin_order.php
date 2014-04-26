@@ -1,6 +1,10 @@
 <?php
 require 'connection.php';
-//require 'admin.php';
+/*---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ 													Page to let the admin view all the orders. Implemented by Abhinav Tripathi
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 if(adloggedin()){
 /*$user = $_SESSION['user_id'];
 */$query = "SELECT * FROM `order_frame` WHERE '1'";
@@ -17,14 +21,14 @@ if($run = mysql_query($query)){
 		if($runf = mysql_query($queryf)){
 			for($f=0;$f<mysql_num_rows($runf);$f++){
 			$query_arrayf = mysql_fetch_array($runf);
-			$colorf = $query_arrayf['color'];
+			//$colorf = $query_arrayf['color'];
 			}
 		}
 	$querym = "SELECT `color` FROM `mount` WHERE `mountid`='$mid'";
 		if($runm = mysql_query($querym)){
 			for($m=0;$m<mysql_num_rows($runm);$m++){
 			$query_arraym = mysql_fetch_array($runm);
-			$colorm = $query_arraym['color'];
+			//$colorm = $query_arraym['color'];
 			}
 		}
 		
@@ -47,9 +51,7 @@ if($run = mysql_query($query)){
 		echo '<tr>
                   <td>'.$oid.'</td>
                   <td>'.$fid.'</td>
-                  <td>'.$colorf.'</td>
                   <td>'.$mid.'</td>
-                  <td>'.$colorm.'</td>
                   <td>
                   <div class="row">
                   <div class="col-md-12">
